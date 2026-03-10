@@ -29,18 +29,20 @@ def find_insertion_index(
 
 
 def recalculate_scores(bucket_books: List[Book], bucket_id: int) -> None:
-    """Evenly space scores across the bucket's range for all books in it."""
+    """Evenly space scores across the bucket's range with padding at edges.
+
+    Scores are placed as if there is one invisible book at each boundary,
+    so real books never sit exactly on the bucket edges. This keeps a visible
+    gap between the top of one bucket and the bottom of the next.
+    """
     label, range_min, range_max = BUCKETS[bucket_id]
     n = len(bucket_books)
     if n == 0:
         return
-    if n == 1:
-        bucket_books[0].score = round((range_min + range_max) / 2, 1)
-        bucket_books[0].rank_in_bucket = 0
-        return
+    # n real books occupy positions 1..n out of (n+1) slots
     for i, book in enumerate(bucket_books):
         book.rank_in_bucket = i
-        book.score = round(range_min + (range_max - range_min) * (i / (n - 1)), 1)
+        book.score = round(range_min + (range_max - range_min) * ((i + 1) / (n + 1)), 1)
 
 
 def insert_book(
