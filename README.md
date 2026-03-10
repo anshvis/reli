@@ -33,6 +33,7 @@ Use arrow keys to navigate menus, Enter to select.
 - **Add a book** — Add one book at a time (enter title → pick bucket → answer comparisons)
 - **Add multiple books** — Enter several titles upfront, then categorize and rank each one
 - **View rankings** — See all books as a single ranked list or grouped by bucket
+- **Rerank a book** — Change a book's bucket or re-sort it within its current bucket
 - **Delete a book** — Remove a book (scores in its bucket recalculate)
 
 ## Storage
