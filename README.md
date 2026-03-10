@@ -16,14 +16,14 @@ Beli for reading. A terminal app for ranking books using a Beli-style rating sys
 ## Setup
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
+python3 -m venv venv
+venv/bin/pip install -r requirements.txt
 ```
 
 ## Usage
 
 ```bash
-.venv/bin/python run.py
+venv/bin/python run.py
 ```
 
 Use arrow keys to navigate menus, Enter to select.
